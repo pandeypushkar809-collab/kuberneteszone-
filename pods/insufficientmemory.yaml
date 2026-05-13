@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: failure-1
+  labels:
+    app: httpd
+    purpose: learning
+    environment: development
+
+spec:
+  containers:
+    - name: tomcat
+      image: tomcat:latest
+      resources:
+      limits:
+      cpu: "100m"
+       memory: "10Mi"
+      request:
+         cpu: "100m"
+         memory: "20Mi" 
+
+      ports:
+        - containerPort: 80
+          name: httpd
+          protocol: TCP

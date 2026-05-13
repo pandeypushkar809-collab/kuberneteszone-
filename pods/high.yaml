@@ -1,0 +1,59 @@
+---
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: high-1
+  labels:
+    app: httpd
+    purpose: learning
+    environment: development
+
+spec:
+  containers:
+    - name: httpd
+      image: httpd:latest
+
+      resources:
+        requests:
+          cpu: "100m"
+          memory: "64Mi"
+
+        limits:
+          cpu: "10000m"
+          memory: "12800Mi"
+
+      ports:
+        - containerPort: 80
+          name: httpd
+          protocol: TCP
+
+---
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: high-2
+  labels:
+    app: httpd
+    purpose: learning
+    environment: development
+
+spec:
+  containers:
+    - name: httpd
+      image: httpd:latest
+
+      resources:
+        requests:
+          cpu: "10000m"
+          memory: "12800Mi"
+
+        limits:
+          cpu: "10000m"
+          memory: "12800Mi"
+
+      ports:
+        - containerPort: 80
+          name: httpd
+          protocol: TCP

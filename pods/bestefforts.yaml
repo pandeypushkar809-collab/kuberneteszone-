@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: bestefforts
+  labels:
+    app: httpd
+    purpose: learning
+    environment: development
+
+spec:
+  containers:
+    - name: httpd
+      image: httpd:latest
+
+      ports:
+        - containerPort: 80
+          name: httpd
+          protocol: TCP

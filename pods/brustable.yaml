@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: burstable
+  labels:
+    app: httpd
+    purpose: learning
+    environment: development
+
+spec:
+  containers:
+    - name: httpd
+      image: httpd:latest
+
+      resources:
+        requests:
+          cpu: "100m"
+          memory: "64Mi"
+
+        limits:
+          cpu: "500m"
+          memory: "256Mi"
+
+      ports:
+        - containerPort: 80
+          name: httpd
+          protocol: TCP

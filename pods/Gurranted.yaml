@@ -1,0 +1,29 @@
+---
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: guaranteed
+  labels:
+    app: httpd
+    purpose: learning
+    environment: development
+
+spec:
+  containers:
+    - name: httpd
+      image: httpd:latest
+
+      resources:
+        requests:
+          cpu: "100m"
+          memory: "128Mi"
+
+        limits:
+          cpu: "100m"
+          memory: "128Mi"
+
+      ports:
+        - containerPort: 80
+          name: httpd
+          protocol: TCP
