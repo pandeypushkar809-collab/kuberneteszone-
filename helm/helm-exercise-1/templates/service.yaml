@@ -1,0 +1,15 @@
+# servicd of type load balancer
+---
+apiVersion: v1
+kind: Service
+metadata: 
+    name: {{ .Values.service.name }} -svc
+spec:
+   type: {{ .Values.service.type}}
+       Ports: {{ .Values.service.ports  | toYaml  | nindent 4}}
+   selector:  {{ .Values.labels | toYaml  | nindent 4}}
+   
+       
+
+
+
