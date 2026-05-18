@@ -1,0 +1,25 @@
+# servicd of type load balancer
+---
+apiVersion: v1
+kind: Service
+metadata: 
+   - name: nginx-service 
+spec:
+   type: LoadBalancer
+   ports: 
+     - port: 80
+       targetPort: 80
+   selector: 
+       app: nginx
+       version: v1
+template:
+     metadata:
+      labels:  
+     app: nginx
+     version: v1
+spec: 
+  containers:
+  - name: nginx
+     image:httpd:latest
+    containerPort: 
+          containerPort:80
